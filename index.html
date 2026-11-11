@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="logo.png">
+<meta property="og:title" content="HM Wellness | 주식회사 에이치엠웰니스">
+<meta property="og:image" content="https://www.hmwellness.co.kr/logo.png">
+<title>HM Wellness</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="주식회사 에이치엠웰니스(HM Wellness Corp.) — 병원 경영에 필요한 행정·세무·인사·마케팅·IT를 통합 지원하는 MSO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Noto+Serif+KR:wght@300;400;500&family=IBM+Plex+Sans+KR:wght@300;400;500&display=swap">
+<style>
+/* Layout: quiet maison grid — black monogram hero, white editorial bands on hairlines, royal-blue closing band; single light world by choice */
+:root {
+  --paper: #ffffff;
+  --ink: #111318;
+  --stone: #63666f;      /* cool grey, biased toward the royal blue */
+  --line: #e2e4ea;
+  --mist: #f3f5fa;
+  --royal: #1d3fa6;      /* royal blue accent */
+  --royal-deep: #142d7a;
+  --royal-light: #8fa8ff;/* royal tint for use on black */
+  --night: #0e0f12;
+  --night-fg: #f1f2f5;
+  --night-dim: #9aa0ad;
+  --f-latin: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --f-display: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+  --f-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --s-xs: .75rem; --s-sm: .875rem; --s-md: 1rem; --s-lg: 1.25rem; --s-xl: 1.75rem; --s-2xl: clamp(1.9rem, 4vw, 2.75rem); --s-3xl: clamp(2.3rem, 6vw, 4.5rem);
+  --max: 1240px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: var(--s-md); line-height: 1.75; font-weight: 300; -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: break-word; }
+a { color: inherit; }
+:focus-visible { outline: 1px solid var(--royal); outline-offset: 4px; }
+
+/* language switching: Korean by default, English when body.en */
+body:not(.en) .en, body.en .ko { display: none !important; }
+body.en { word-break: normal; }
+body.en h1, body.en h2, body.en h3, body.en blockquote { font-family: var(--f-latin); font-weight: 400; letter-spacing: -.005em; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+@media (max-width: 480px) { .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); } }
+.eyebrow { font-family: var(--f-body); font-size: var(--s-xs); letter-spacing: .28em; text-transform: uppercase; font-weight: 400; color: var(--stone); margin: 0; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 300; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+.latin { font-family: var(--f-latin); }
+
+/* ---------- header ---------- */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--paper); }
+.site-head { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(255,255,255,.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.head-row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 76px; }
+.brand { grid-column: 2; display: flex; align-items: center; text-decoration: none; }
+.brand img { height: 42px; width: auto; mix-blend-mode: multiply; display: block; }
+.nav { grid-column: 1; grid-row: 1; display: flex; gap: 28px; }
+.nav a, .head-cta { font-size: var(--s-xs); letter-spacing: .2em; text-transform: uppercase; text-decoration: none; font-weight: 400; padding-block: 6px; border-bottom: 1px solid transparent; transition: border-color .3s, color .3s; }
+.nav a:hover, .head-cta:hover { border-bottom-color: var(--royal); color: var(--royal); }
+.head-right { grid-column: 3; justify-self: end; display: flex; align-items: center; gap: 28px; }
+.lang { display: flex; align-items: center; border: 1px solid var(--line); }
+.lang button { background: none; border: 0; cursor: pointer; font: inherit; font-size: var(--s-xs); letter-spacing: .14em; padding: 6px 11px; color: var(--stone); line-height: 1.4; }
+.lang button[aria-pressed="true"] { background: var(--royal); color: #fff; }
+.lang button:not([aria-pressed="true"]):hover { color: var(--royal); }
+.menu-btn { display: none; grid-column: 1; grid-row: 1; justify-self: start; background: none; border: 0; padding: 10px 0; cursor: pointer; font: inherit; font-size: var(--s-xs); letter-spacing: .2em; text-transform: uppercase; color: var(--ink); }
+.mobile-nav { border-top: 1px solid var(--line); background: var(--paper); }
+.mobile-nav ul { list-style: none; margin: 0 auto; padding-block: 12px 20px; display: grid; }
+.mobile-nav a { display: block; padding: 12px 0; font-family: var(--f-display); font-size: var(--s-lg); text-decoration: none; border-bottom: 1px solid var(--line); }
+@media (max-width: 860px) {
+  .nav, .head-cta { display: none; }
+  .menu-btn { display: block; }
+  .head-row { height: 64px; }
+  .brand img { height: 34px; }
+}
+
+/* ---------- hero ---------- */
+.hero { background: var(--night); color: var(--night-fg); position: relative; overflow: hidden; }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--royal); }
+.hero-mark { position: absolute; right: -6%; top: 50%; transform: translateY(-50%); width: min(62vw, 820px); max-width: none; filter: invert(1); mix-blend-mode: screen; opacity: .09; pointer-events: none; }
+.hero .wrap { position: relative; padding-block: clamp(96px, 14vw, 180px) clamp(80px, 11vw, 140px); }
+.hero .eyebrow { color: var(--night-dim); }
+.hero h1 { font-size: var(--s-3xl); line-height: 1.25; margin-top: 28px; max-width: 15em; }
+.hero h1 em { font-style: normal; color: var(--royal-light); }
+.hero-lede { margin: 32px 0 0; max-width: 36em; color: #c9ccd4; font-size: var(--s-md); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 48px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding-inline: 30px; font: inherit; font-size: var(--s-xs); letter-spacing: .22em; text-transform: uppercase; text-decoration: none; font-weight: 400; border: 1px solid currentColor; background: none; cursor: pointer; transition: background .3s, color .3s, border-color .3s; }
+.btn-royal { background: var(--royal); color: #fff; border-color: var(--royal); }
+.btn-royal:hover { background: var(--royal-deep); border-color: var(--royal-deep); }
+.btn-light { background: var(--night-fg); color: var(--ink); border-color: var(--night-fg); }
+.btn-light:hover { background: transparent; color: var(--night-fg); }
+.btn-ghost { color: var(--night-fg); }
+.btn-ghost:hover { background: var(--night-fg); color: var(--ink); }
+.hero-foot { margin-top: clamp(64px, 9vw, 110px); padding-top: 22px; border-top: 1px solid rgba(241,242,245,.16); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: var(--s-xs); letter-spacing: .18em; text-transform: uppercase; color: #7d828f; }
+
+/* ---------- sections ---------- */
+section.band { padding-block: clamp(80px, 11vw, 150px); border-bottom: 1px solid var(--line); }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 32px 64px; align-items: start; }
+.sec-head h2 { font-size: var(--s-2xl); line-height: 1.35; }
+.sec-head .eyebrow { padding-top: 12px; display: flex; align-items: center; gap: 12px; }
+.sec-head .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--royal); }
+@media (max-width: 860px) { .sec-head { grid-template-columns: minmax(0, 1fr); } .sec-head .eyebrow { padding-top: 0; } }
+
+/* about */
+.about-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 32px 64px; margin-top: 56px; }
+.about-text { grid-column: 2; display: grid; gap: 20px; max-width: 40em; color: #363944; }
+.about-text p { margin: 0; }
+.facts { grid-column: 1 / -1; margin: 64px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.facts div { padding: 22px 24px 0 0; display: grid; gap: 6px; align-content: start; }
+.facts dt { font-size: var(--s-xs); letter-spacing: .2em; text-transform: uppercase; color: var(--royal); }
+.facts dd { margin: 0; font-family: var(--f-display); font-size: var(--s-lg); line-height: 1.5; font-variant-numeric: tabular-nums; }
+body.en .facts dd { font-family: var(--f-latin); }
+@media (max-width: 860px) { .about-body { grid-template-columns: minmax(0, 1fr); } .about-text { grid-column: 1; } .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 28px; } }
+
+/* services */
+.services { margin-top: 72px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.svc { padding: 36px 28px 8px 0; display: grid; grid-template-rows: auto auto auto 1fr; gap: 14px; min-width: 0; }
+.svc + .svc { padding-left: 28px; border-left: 1px solid var(--line); }
+.svc .latin { font-style: italic; font-size: var(--s-lg); color: var(--royal); line-height: 1.2; }
+.svc h3 { font-size: var(--s-xl); line-height: 1.35; }
+.svc p { margin: 0; color: var(--stone); font-size: var(--s-sm); }
+.svc ul { list-style: none; margin: 10px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.svc li { padding: 11px 0; border-bottom: 1px solid var(--line); font-size: var(--s-sm); }
+@media (max-width: 1040px) { .services { grid-template-columns: repeat(2, minmax(0, 1fr)); } .svc:nth-child(3) { padding-left: 0; border-left: 0; } .svc:nth-child(n+3) { border-top: 1px solid var(--line); margin-top: 24px; } }
+@media (max-width: 600px) { .services { grid-template-columns: minmax(0, 1fr); } .svc + .svc { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); margin-top: 24px; } }
+
+/* statement */
+.statement { background: var(--mist); text-align: center; }
+.statement blockquote { margin: 0 auto; max-width: 22em; font-family: var(--f-display); font-weight: 300; font-size: var(--s-2xl); line-height: 1.55; text-wrap: balance; }
+.statement .rule { width: 1px; height: 56px; background: var(--royal); margin: 0 auto 40px; }
+.statement cite { display: block; margin-top: 36px; font-style: normal; color: var(--royal); }
+
+/* process */
+.steps { list-style: none; margin: 72px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); counter-reset: step; }
+.steps li { counter-increment: step; padding: 0 28px 0 0; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--f-latin); font-size: 2.6rem; line-height: 1; color: var(--royal); padding-bottom: 22px; border-bottom: 1px solid var(--ink); margin-bottom: 10px; }
+.steps h3 { font-size: var(--s-lg); line-height: 1.4; }
+.steps p { margin: 0; color: var(--stone); font-size: var(--s-sm); }
+@media (max-width: 860px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; } }
+@media (max-width: 520px) { .steps { grid-template-columns: minmax(0, 1fr); } .steps li { padding-right: 0; } }
+
+/* why */
+.why { margin-top: 72px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.why div { display: grid; gap: 12px; align-content: start; padding-top: 24px; border-top: 1px solid var(--line); }
+.why h3 { font-size: var(--s-lg); }
+.why p { margin: 0; color: var(--stone); font-size: var(--s-sm); }
+@media (max-width: 860px) { .why { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
+
+/* contact — royal blue band */
+.contact { background: var(--royal); color: #fff; border-bottom: 0 !important; }
+.contact .eyebrow { color: rgba(255,255,255,.72); }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px 80px; align-items: end; }
+.contact h2 { font-size: var(--s-3xl); line-height: 1.25; margin-top: 24px; }
+.contact-list { margin: 0; display: grid; border-top: 1px solid rgba(255,255,255,.3); }
+.contact-list div { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.3); }
+.contact-list dt { font-size: var(--s-xs); letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.7); padding-top: 4px; }
+.contact-list dd { margin: 0; user-select: text; }
+.contact .hero-actions { margin-top: 40px; }
+.contact .btn-light:hover { color: #fff; }
+.contact .btn-ghost { color: #fff; }
+.contact .btn-ghost:hover { background: #fff; color: var(--royal); }
+@media (max-width: 860px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } .contact-list div { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+
+/* footer */
+footer { background: var(--night); color: #7d828f; font-size: var(--s-xs); line-height: 1.9; }
+footer .wrap { padding-block: 44px 52px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 24px 48px; align-items: start; }
+footer img { height: 44px; width: auto; filter: invert(1); mix-blend-mode: screen; opacity: .85; }
+footer p { margin: 0; }
+footer .info span { white-space: nowrap; }
+footer .info .sep::before { content: "|"; margin: 0 10px; color: #3d414b; }
+@media (max-width: 640px) { footer .wrap { grid-template-columns: minmax(0, 1fr); } footer .info span { white-space: normal; } }
+
+/* gentle entrance from a visible resting state */
+.rise { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+.rise.d2 { animation-delay: .12s; } .rise.d3 { animation-delay: .24s; } .rise.d4 { animation-delay: .36s; }
+@keyframes rise { from { transform: translateY(14px); opacity: .001; } to { transform: none; opacity: 1; } }
+</style>
+
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-row">
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+    <nav class="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+    </nav>
+    <a class="brand" href="#top" aria-label="HM Wellness"><img src="logo.png" alt="HM Wellness"></a>
+    <div class="head-right">
+      <a class="head-cta" href="#contact">Contact</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="lang-ko" data-lang="ko" aria-pressed="true">KO</button>
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <ul class="wrap">
+      <li><a href="#about"><span class="ko">회사 소개</span><span class="en">About</span></a></li>
+      <li><a href="#services"><span class="ko">서비스</span><span class="en">Services</span></a></li>
+      <li><a href="#process"><span class="ko">진행 절차</span><span class="en">Process</span></a></li>
+      <li><a href="#contact"><span class="ko">문의</span><span class="en">Contact</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <img class="hero-mark" src="logo.png" alt="" aria-hidden="true">
+    <div class="wrap">
+      <p class="eyebrow rise">Medical Service Organization</p>
+      <h1 id="hero-title" class="rise d2">
+        <span class="ko">진료는 의료진에게,<br>그 밖의 모든 일은 <em>HM Wellness</em>에게.</span>
+        <span class="en">Medicine for doctors.<br>Everything else, <em>HM Wellness</em>.</span>
+      </h1>
+      <p class="hero-lede rise d3">
+        <span class="ko">에이치엠웰니스는 병원 경영에 필요한 행정·세무·인사·마케팅·IT를 한 곳에서 운영하는 MSO입니다. 의료진이 환자에게만 집중할 수 있도록 진료실 밖의 일을 맡습니다.</span>
+        <span class="en">HM Wellness is a medical service organization that runs the administration, accounting, HR, marketing and IT a clinic needs, all in one place. We take care of everything outside the exam room so physicians can focus on their patients.</span>
+      </p>
+      <div class="hero-actions rise d4">
+        <a class="btn btn-royal" href="#services"><span class="ko">서비스 보기</span><span class="en">Our Services</span></a>
+        <a class="btn btn-ghost" href="#contact"><span class="ko">상담 문의</span><span class="en">Contact Us</span></a>
+      </div>
+      <div class="hero-foot">
+        <span>HM Wellness Corp.</span>
+        <span>Seoul · Gangnam · Est. 2025</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">About</p>
+        <h2 id="about-title">
+          <span class="ko">병원이 진료에 온전히 집중하도록,<br>보이지 않는 운영을 설계합니다.</span>
+          <span class="en">We design the operations no one sees, so clinics can focus entirely on care.</span>
+        </h2>
+      </div>
+      <div class="about-body">
+        <div class="about-text">
+          <p class="ko">좋은 진료는 진료실 안에서 완성되지만, 병원은 진료실 밖에서 움직입니다. 직원 채용과 급여, 세무 신고, 보험 청구, 장비 관리, 온라인 홍보까지. 원장님이 직접 챙기기에는 너무 많고, 소홀히 하기에는 너무 중요한 일들입니다.</p>
+          <p class="ko">에이치엠웰니스는 이 일들을 하나의 운영 체계로 묶어 대신 맡습니다. 분야별 담당자를 따로 찾을 필요 없이, 한 팀이 병원의 경영 지원 전반을 책임지고 정기적으로 결과를 보고드립니다.</p>
+          <p class="en">Good medicine happens inside the exam room, but a clinic runs on everything outside it: hiring and payroll, tax filings, insurance claims, equipment, online presence. It is too much for a physician to handle alone, and too important to neglect.</p>
+          <p class="en">HM Wellness brings all of this into a single operating system and runs it for you. Instead of hiring a different vendor for each task, one team takes responsibility for your clinic's business support and reports results to you regularly.</p>
+        </div>
+        <dl class="facts">
+          <div><dt>Company</dt><dd><span class="ko">주식회사 에이치엠웰니스</span><span class="en">HM Wellness Corp.</span></dd></div>
+          <div><dt>Founded</dt><dd>2025. 12. 18</dd></div>
+          <div><dt>Office</dt><dd><span class="ko">서울 강남구 역삼동</span><span class="en">Yeoksam-dong, Gangnam, Seoul</span></dd></div>
+          <div><dt>Scope</dt><dd><span class="ko">경영지원 · 마케팅 ·<br>운영 · 글로벌</span><span class="en">Management · Marketing ·<br>Operations · Global</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Services</p>
+        <h2 id="services-title">
+          <span class="ko">진료 외에 병원에 필요한 일,<br>네 개의 분야로 나누어 맡습니다.</span>
+          <span class="en">Everything a clinic needs beyond treatment, in four areas.</span>
+        </h2>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <span class="latin">Management</span>
+          <h3><span class="ko">경영 · 행정 지원</span><span class="en">Management &amp; Administration</span></h3>
+          <p><span class="ko">병원 운영의 기본이 되는 사무와 재무, 인사를 체계화합니다.</span><span class="en">We put the office, finance and people side of your clinic on a solid footing.</span></p>
+          <ul>
+            <li><span class="ko">경영 컨설팅 및 행정 지원</span><span class="en">Management consulting and administrative support</span></li>
+            <li><span class="ko">세무 · 회계 관리 (제휴 세무사 연계)</span><span class="en">Tax and accounting management (with partner tax accountants)</span></li>
+            <li><span class="ko">인사 · 노무 관리, 직원 교육</span><span class="en">HR, labor management and staff training</span></li>
+            <li><span class="ko">보험 청구 및 원무 지원</span><span class="en">Insurance claims and front-office support</span></li>
+          </ul>
+        </article>
+        <article class="svc">
+          <span class="latin">Brand &amp; Digital</span>
+          <h3><span class="ko">마케팅 · 웹 · IT</span><span class="en">Marketing, Web &amp; IT</span></h3>
+          <p><span class="ko">병원의 철학이 환자에게 정확히 전달되도록 브랜드를 만듭니다.</span><span class="en">We build a brand that carries your clinic's philosophy to patients accurately.</span></p>
+          <ul>
+            <li><span class="ko">브랜딩 및 홍보 · 마케팅 대행</span><span class="en">Branding, PR and marketing</span></li>
+            <li><span class="ko">홈페이지 · 웹 개발</span><span class="en">Website design and development</span></li>
+            <li><span class="ko">정보시스템 구축 · 운영, IT 지원</span><span class="en">Information systems and IT support</span></li>
+            <li><span class="ko">환자 서비스 및 만족도 조사</span><span class="en">Patient experience and satisfaction surveys</span></li>
+          </ul>
+        </article>
+        <article class="svc">
+          <span class="latin">Operations</span>
+          <h3><span class="ko">시설 · 장비 운영</span><span class="en">Facilities &amp; Equipment</span></h3>
+          <p><span class="ko">공간과 장비가 멈추지 않도록 구매부터 유지보수까지 관리합니다.</span><span class="en">From purchase to maintenance, we keep your space and equipment running.</span></p>
+          <ul>
+            <li><span class="ko">시설 관리</span><span class="en">Facility management</span></li>
+            <li><span class="ko">의료장비 구매 · 임대 · 유지보수</span><span class="en">Medical equipment purchase, leasing and maintenance</span></li>
+            <li><span class="ko">주차장 · 매점 · 카페테리아 등 부대사업 운영</span><span class="en">Ancillary services such as parking, shops and cafeterias</span></li>
+            <li><span class="ko">의료기기 유통 및 판매</span><span class="en">Medical device distribution and sales</span></li>
+          </ul>
+        </article>
+        <article class="svc">
+          <span class="latin">Global</span>
+          <h3><span class="ko">해외 환자 · 해외 사업</span><span class="en">International Patients &amp; Business</span></h3>
+          <p><span class="ko">해외 환자 유치와 해외 의료기관과의 협력을 연결합니다.</span><span class="en">We connect clinics with international patients and overseas medical partners.</span></p>
+          <ul>
+            <li><span class="ko">외국인 환자 유치</span><span class="en">International patient attraction</span></li>
+            <li><span class="ko">해외 의료기관 업무 제휴 · 중개</span><span class="en">Partnerships with overseas medical institutions</span></li>
+            <li><span class="ko">해외 의료 시장 조사 및 컨설팅</span><span class="en">Overseas healthcare market research and consulting</span></li>
+            <li><span class="ko">의료기기 수출입 · 상품 개발</span><span class="en">Medical device import/export and product development</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band statement" aria-label="Philosophy">
+    <div class="wrap">
+      <div class="rule" aria-hidden="true"></div>
+      <blockquote>
+        <span class="ko">의료는 신뢰에서 시작되고,<br>신뢰는 보이지 않는 운영에서 완성됩니다.</span>
+        <span class="en">Medicine begins with trust,<br>and trust is built in the operations no one sees.</span>
+      </blockquote>
+      <cite class="eyebrow">HM Wellness Philosophy</cite>
+    </div>
+  </section>
+
+  <section class="band" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Process</p>
+        <h2 id="process-title">
+          <span class="ko">병원의 현재를 먼저 진단하고,<br>필요한 만큼만 맡습니다.</span>
+          <span class="en">We start by understanding your clinic, then take on only what you need.</span>
+        </h2>
+      </div>
+      <ol class="steps">
+        <li><h3><span class="ko">운영 진단</span><span class="en">Assessment</span></h3><p><span class="ko">원장님과의 상담으로 행정·인력·재무·마케팅 현황을 살피고 개선이 필요한 지점을 찾습니다.</span><span class="en">Through a consultation, we review your administration, staffing, finances and marketing to find what needs improvement.</span></p></li>
+        <li><h3><span class="ko">맞춤 제안</span><span class="en">Proposal</span></h3><p><span class="ko">병원 규모와 진료과에 맞춰 위탁 범위와 운영 방식을 제안합니다. 일부 업무만 맡기실 수도 있습니다.</span><span class="en">We propose a scope and operating model that fits your clinic's size and specialty. You can also delegate only part of the work.</span></p></li>
+        <li><h3><span class="ko">온보딩</span><span class="en">Onboarding</span></h3><p><span class="ko">계약 후 기존 업무를 인수인계하고, 담당자와 보고 체계를 정해 운영을 시작합니다.</span><span class="en">After signing, we take over existing tasks, assign a dedicated manager and set up reporting.</span></p></li>
+        <li><h3><span class="ko">운영 · 리포트</span><span class="en">Operation &amp; Reporting</span></h3><p><span class="ko">매월 운영 결과를 정리해 보고드리고, 데이터에 따라 운영 방식을 계속 조정합니다.</span><span class="en">We report results every month and keep adjusting how we work based on the data.</span></p></li>
+      </ol>
+
+      <div class="why">
+        <div><h3><span class="ko">하나의 창구</span><span class="en">One point of contact</span></h3><p><span class="ko">세무, 노무, 마케팅, IT를 각각 따로 맡기지 않아도 됩니다. 한 팀이 전체를 조율합니다.</span><span class="en">No need to hire separate firms for tax, labor, marketing and IT. One team coordinates it all.</span></p></div>
+        <div><h3><span class="ko">투명한 보고</span><span class="en">Transparent reporting</span></h3><p><span class="ko">무엇을 했고 어떤 결과가 났는지 정기 리포트로 공유합니다.</span><span class="en">Regular reports show you what we did and what it achieved.</span></p></div>
+        <div><h3><span class="ko">진료와의 분리</span><span class="en">Clear boundaries</span></h3><p><span class="ko">의료 행위와 경영 지원의 경계를 지키며, 진료에 관한 결정은 언제나 의료진의 몫으로 남깁니다.</span><span class="en">We keep business support separate from medical practice. Clinical decisions always remain with physicians.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">
+          <span class="ko">진료에만 집중하세요.<br>나머지는 저희가 돕겠습니다.</span>
+          <span class="en">Focus on your patients.<br>We'll take care of the rest.</span>
+        </h2>
+      </div>
+      <div>
+        <dl class="contact-list">
+          <div><dt>Address</dt><dd><span class="ko">서울특별시 강남구 강남대로110길 29, 1층<br>(역삼동)</span><span class="en">1F, 29 Gangnam-daero 110-gil, Gangnam-gu,<br>Seoul, Republic of Korea</span></dd></div>
+          <div><dt>E-mail</dt><dd>contact@hmwellness.co.kr</dd></div>
+          <div><dt>Web</dt><dd>www.hmwellness.co.kr</dd></div>
+        </dl>
+        <div class="hero-actions">
+          <a class="btn btn-light" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EA%B0%95%EB%82%A8%EB%8C%80%EB%A1%9C110%EA%B8%B8%2029" target="_blank" rel="noopener"><span class="ko">지도에서 보기</span><span class="en">View Map</span></a>
+          <button class="btn btn-ghost" type="button" id="copy-email"><span class="ko">이메일 복사</span><span class="en">Copy E-mail</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="logo.png" alt="HM Wellness">
+    <div class="info">
+      <p class="ko"><span>주식회사 에이치엠웰니스 (HM Wellness Corp.)</span><span class="sep">대표이사 권호영</span><span class="sep">사업자등록번호 247-86-04119</span></p>
+      <p class="ko"><span>서울특별시 강남구 강남대로110길 29, 1층 (역삼동)</span></p>
+      <p class="en"><span>HM Wellness Corp.</span><span class="sep">CEO Hoyoung Kwon</span><span class="sep">Business Reg. No. 247-86-04119</span></p>
+      <p class="en"><span>1F, 29 Gangnam-daero 110-gil, Gangnam-gu, Seoul, Republic of Korea</span></p>
+      <p>© 2026 HM Wellness Corp. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var body = document.body;
+  var koBtn = document.getElementById('lang-ko');
+  var enBtn = document.getElementById('lang-en');
+  function setLang(lang) {
+    var en = lang === 'en';
+    body.classList.toggle('en', en);
+    document.documentElement.setAttribute('lang', en ? 'en' : 'ko');
+    koBtn.setAttribute('aria-pressed', String(!en));
+    enBtn.setAttribute('aria-pressed', String(en));
+    try { localStorage.setItem('hm-lang', lang); } catch (e) {}
+  }
+  koBtn.addEventListener('click', function () { setLang('ko'); });
+  enBtn.addEventListener('click', function () { setLang('en'); });
+  var saved = null;
+  try { saved = localStorage.getItem('hm-lang'); } catch (e) {}
+  if (saved === 'en' || (!saved && /^en\b/i.test(navigator.language || '') )) setLang('en');
+
+  var btn = document.getElementById('menu-btn');
+  var nav = document.getElementById('mobile-nav');
+  btn.addEventListener('click', function () {
+    var open = nav.hidden;
+    nav.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.textContent = open ? 'Close' : 'Menu';
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('a')) { nav.hidden = true; btn.setAttribute('aria-expanded', 'false'); btn.textContent = 'Menu'; }
+  });
+
+  var copy = document.getElementById('copy-email');
+  var original = copy.innerHTML;
+  copy.addEventListener('click', function () {
+    var email = 'contact@hmwellness.co.kr';
+    var done = function () { copy.textContent = body.classList.contains('en') ? 'Copied' : '복사됨'; setTimeout(function () { copy.innerHTML = original; }, 1800); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(done, function () { copy.textContent = email; });
+    } else { copy.textContent = email; }
+  });
+})();
+</script>
+
+</body>
+</html>
